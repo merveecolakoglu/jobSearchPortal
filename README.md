@@ -11,6 +11,3 @@
   - Django, Postgres
 
 
-
-  ![alt text](https://github.com/merveecolakoglu/jobSearchPortal/resources/Ekran Resmi 2022-09-15 13.09.59.png)
- 
