@@ -13,9 +13,9 @@
 
   - Django, Postgres
 
-    ![ ](https://github.com/merveecolakoglu/jobSearchPortal/blob/master/resources/EkranResmi2022-09-1513.09.59.png)
-    ![ ](https://github.com/merveecolakoglu/jobSearchPortal/blob/master/resources/EkranResmi2022-09-1513.09.17.png)
-    ![ ](https://github.com/merveecolakoglu/jobSearchPortal/blob/master/resources/EkranResmi2022-09-1513.14.12.png)
-    ![ ](https://github.com/merveecolakoglu/jobSearchPortal/blob/master/resources/EkranResmi2022-09-1513.13.51.png)
+    ![ ](https://github.com/merveecolakoglu/jobSearchPortal/blob/master/resources/b.png)
+    ![ ](https://github.com/merveecolakoglu/jobSearchPortal/blob/master/resources/e.png)
+    ![ ](https://github.com/merveecolakoglu/jobSearchPortal/blob/master/resources/f.png)
+    ![ ](https://github.com/merveecolakoglu/jobSearchPortal/blob/master/resources/a.png)
 
 
