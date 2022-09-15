@@ -8,8 +8,7 @@
   4. pip install -r requirements.txt
   5. python manage.py runserver
 
-# Django
-#Postgres
+  - Django, Postgres
 
 
 
