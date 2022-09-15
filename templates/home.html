@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+    <div class="auth">
+        <div class="card">
+
+            <div class="auth__alternative">
+                <a href="{% url 'users:employer-register'%}"><input class="btn btn--sub btn--lg" type="submit" value="I am a employer"/></a>
+                <a href="{% url 'account_signup' %}"><input class="btn btn--sub btn--lg" type="submit" value="I am a employee"/></a>
+            </div>
+
+        </div>
+    </div>
+{% endblock %} %}

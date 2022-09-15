@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+    <main class="messagePage my-xl">
+        <div class="content-box">
+            <div class="message">
+                <a class="backButton" href="{% url 'jobs:all-applicant' %}"><i class="im im-angle-left"></i></a>
+                <h2 class="message__subject">{{ applicant.job.title }}</h2>
+                <a href="{% url 'users:user-profile' applicant.user.id %}"
+                   class="message__author">{{ applicant.user.user.get_full_name }}</a>
+                <p class="message__date">{{ applicant.created }}</p>
+                <div class="message__body"></div>
+            </div>
+        </div>
+    </main>
+{% endblock %} %}

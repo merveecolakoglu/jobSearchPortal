@@ -1,0 +1,67 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load is_job_already_applied %}
+
+{% block content %}
+    <main class="singleProject my-md">
+        <div class="container">
+            <div class="layout">
+                <div class="column column--1of3">
+                    <p class="singleProject__subtitle">Employer by <a href="{% url 'users:user-profile' job.owner.id %}"
+                                                                      class="singleProject__developer">{{ job.owner.user.get_full_name }}</a>
+                    </p>
+
+                    <p class="singleProject__description">{{ job.created }}</p>
+                <br>
+                    <h3 class="singleProject__subtitle">Skills</h3>
+                    <div class="singleProject__toolStack">
+                        {% for tag in tags %}
+                            <span class="tag tag--pill tag--sub tag--lg">
+              <small>{{ tag }}</small>
+            </span>
+                        {% endfor %}
+
+                    </div>
+                </div>
+
+                <div class="column column--2of3">
+                    <img class="singleProject__preview" src="{{ job.imageURL }}" alt="portfolio thumbnail"/>
+                    <h2 class="singleProject__title">{{ job.title }}</h2>
+                    <h3 class="singleProject__subtitle">About</h3>
+                    <div class="singleProject__info">
+                        {{ job.description }}
+                    </div>
+
+                    <div class="comments">
+                        {% if user.is_authenticated and user.is_employee %}
+                            {% is_job_already_applied job request.user.profile as is_applied %}
+                            {% if is_applied %}
+                                <input class="btn btn--sub btn--lg" type="submit" value="Already Applied"/>
+                            {% else %}
+                                <form class="form" action="{% url 'jobs:job-applications' job.id %}" method="POST">
+                                    {% csrf_token %}
+                                    <input type="hidden" name="job" value="{{ job.id }}">
+                                    <input class="btn btn--sub btn--lg" type="submit" value="Apply"/>
+                                </form>
+                            {% endif %}
+                        {% elif user.is_authenticated and user.is_employer %}
+                            {% if job.owner.id == user.profile.id %}
+                                <a class="btn btn--sub btn--lg" href="{% url 'jobs:job-update' job.id %}">
+                                    Edit</a>
+                                <a class="btn btn--sub btn--lg" href="{% url 'jobs:job-delete' job.id %}">
+                                    Delete</a>
+                            {% endif %}
+                        {% else %}
+                            <a href="{% url 'account_login' %}?next={{ request.path }}">Please login to leave
+                                applied</a>
+                        {% endif %}
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        </div>
+    </main>
+
+{% endblock %}
+

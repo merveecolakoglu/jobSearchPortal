@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <main class="formPage my-xl">
+        <div class="content-box">
+            <div class="formWrapper">
+<br>
+                <form class="form" method="POST">
+
+                    {% csrf_token %}
+                    <p>"{{ object }}" Silmek istediğinize emin misiniz?</p>
+                    <a class="btn btn--sub btn--lg  my-md" href="{{ request.GET.next }}">
+                        Geri
+                    </a>
+                    <input class="btn btn--sub btn--lg  my-md" type="submit" value="Sil"/>
+                </form>
+            </div>
+        </div>
+    </main>
+{% endblock %}

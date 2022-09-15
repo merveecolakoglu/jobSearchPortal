@@ -1,0 +1,1 @@
+web: gunicorn jobSearch.wsgi --log-file-

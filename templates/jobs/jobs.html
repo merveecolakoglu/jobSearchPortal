@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <main class="projects">
+        <section class="hero-section text-center">
+            <div class="container container--narrow">
+                <div class="hero-section__box">
+                    <h2>Search for <span>Jobs</span></h2>
+                </div>
+
+                <div class="hero-section__search">
+                    <form id="searchForm" class="form" action="{% url 'jobs:jobs' %}" method="get">
+                        <div class="form__field">
+                            <label for="formInput#search">Search By Jobs </label>
+                            <input class="input input--text" id="formInput#search" type="text" name="search_query"
+                                   placeholder="Search By Job Title" value="{{ search_query }}"/>
+                        </div>
+
+                        <input class="btn btn--sub btn--lg" type="submit" value="Search" />
+                    </form>
+                </div>
+            </div>
+        </section>
+        <!-- Search Result: JobList -->
+        <section class="projectsList">
+            <div class="container">
+                <div class="grid grid--three">
+
+                    {% for job in jobs %}
+
+                        <div class="column">
+                            <div class="card projects">
+                                <a href="{% url 'job:job' job.id %}" class="project">
+                                    <img class="project__thumbnail" src="{{ job.imageURL }}"
+                                         alt="project thumbnail"/>
+                                    <div class="card__body">
+                                        <h3 class="project__title">{{ job.title }}</h3>
+                                        <p><a class="project__author" href="#">{{ job.get_type_display }}</a></p>
+                                        <br>
+                                        <div class="project__tags">
+                                            {% for tag in job.tags.all %}
+                                                <span class="tag tag--pill tag--main">
+                                                 <small>{{ tag }}</small>
+                                </span>
+                                            {% endfor %}
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    {% endfor %}
+
+                </div>
+            </div>
+        </section>
+
+        {% include 'pagination.html' with queryset=jobs custom_range=custom_range %}
+
+    </main>
+{% endblock %}
+

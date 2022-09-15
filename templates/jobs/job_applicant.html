@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <main class="inbox my-xl">
+        <div class="content-box">
+            <h3 class="inbox__title">My Applications</h3>
+
+            <ul class="messages">
+                {% for app in applicant %}
+                    <li class="message">
+                        <a href="#">
+                            <span class="message__subject"><a
+                                    href="{% url 'jobs:job' app.job.id %}">{{ app.job }}</a></span>
+                            <span class="message__date">{{ app.created }}</span>
+                        </a>
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
+    </main>
+
+{% endblock content %}

@@ -1,0 +1,66 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load widget_tweaks %}
+
+{% load socialaccount %}
+{% providers_media_js %}
+
+{% block content %}
+
+    <div class="auth">
+        <div class="card">
+            <div class="auth__header text-center">
+                <a href="{% url 'jobs:jobs' %}">
+                    <img src="{% static 'img/icon.svg' %}" alt="icon"/>
+                </a>
+                <h3>Account Login</h3>
+                <p>Hello, Welcome Back!</p>
+            </div>
+
+            <form action="{% url 'account_login' %}" method="post" class="form auth__form">
+                {% csrf_token %}
+                {% for error in form.non_field_errors %}
+                    <span class="text-danger">{{ error }}</span>
+                {% endfor %}
+                {% for field in form %}
+                    <div class="form__field">
+                        <label for="{{ field.formInput }}">{{ field.label }}</label>
+                        {{ field|add_class:'input input-text' }}
+                        {% for error in field.errors %}
+                            <span class="text-danger">{{ error }}</span>
+                        {% endfor %}
+                    </div>
+                {% endfor %}
+
+                {% if redirect_field_value %}
+                    <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}"/>
+                {% endif %}
+                <div class="auth__actions">
+                    <input class="btn btn--sub btn--lg" type="submit" value="Login"/>
+                    <a href="{% url 'account_reset_password' %}">Forget Password?</a>
+                </div>
+            </form>
+            <div class="dev__social">
+                <a title="Facebook" href="{% provider_login_url "facebook" method="oauth2" %}" target="_blank">
+                    <i class="im im-facebook" style="color:#4f4fd5"></i>
+                </a>
+                <a title="Github" href="#" target="_blank">
+                    <i class="im im-github" style="color:#312f2f"></i>
+                </a>
+                <a title="Twitter" href="#" target="_blank">
+                    <i class="im im-twitter" style="color:#288ef5"></i>
+                </a>
+                </a>
+                <a title="Social Website" href="#" target="_blank">
+                    <i class="im im-youtube" style="color:#e84343"></i>
+                </a>
+            </div>
+
+            <div class="auth__alternative">
+                <p>Don't have an Account? <a href="{% url 'users:home' %}">Sign Up</a></p>
+            </div>
+
+        </div>
+    </div>
+
+{% endblock %}
