@@ -1,4 +1,4 @@
-p:root {
+:root {
   --color-sub: #2d2d39;
 }
 
@@ -659,7 +659,7 @@ img {
   left: 0;
   bottom: 0;
   right: 0;
-  background: url(../images/pattern.jpg);
+  background: url(../img/pattern.jpg);
 }
 
 .auth > .card {
