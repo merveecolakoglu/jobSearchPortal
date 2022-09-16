@@ -4,7 +4,7 @@
 
   1. clone repo https://github.com/merveecolakoglu/jobSearchPortal.git
   2. create a virtual environment and active
-  3. cd 'jobSearch'
+  3. cd jobSearch
   4. Set the database from settings.py
   5. python manage.py makemigrations
   6. python manage.py migrate
