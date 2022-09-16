@@ -18,8 +18,7 @@
     ![ ](https://github.com/merveecolakoglu/jobSearchPortal/blob/master/resources/c.png)
     ![ ](https://github.com/merveecolakoglu/jobSearchPortal/blob/master/resources/f.png)
     ![ ](https://github.com/merveecolakoglu/jobSearchPortal/blob/master/resources/a.png)
-    ![ ](https://github.com/merveecolakoglu/jobSearchPortal/blob/master/resources/ı.png)
-    ![ ](https://github.com/merveecolakoglu/jobSearchPortal/blob/master/resources/g.png)
+
     ![ ](https://github.com/merveecolakoglu/jobSearchPortal/blob/master/resources/h.png)
 
 
